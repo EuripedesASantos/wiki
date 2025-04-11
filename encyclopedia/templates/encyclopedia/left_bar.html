@@ -1,0 +1,17 @@
+    <h2>Wiki</h2>
+    <form action="{% url 'wiki:search' %}" method="post">
+        {% csrf_token %}
+        {{ form }}
+    </form>
+    <div>
+        <a href="{% url 'wiki:index' %}">Home</a>
+    </div>
+    <div>
+        <a href="/wiki/new">Create New Page</a>
+    </div>
+    <div>
+        <a href="/wiki/edit">Edit Page</a>
+    </div>
+    <div>
+        <a href="/wiki/random">Random Page</a>
+    </div>

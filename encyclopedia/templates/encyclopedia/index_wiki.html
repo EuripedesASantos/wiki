@@ -1,0 +1,16 @@
+{% extends "encyclopedia/layout_wiki.html" %}
+
+
+{% block nav %}
+    {% include "encyclopedia/left_bar.html" %}
+{% endblock %}
+
+{% block title %}
+    Encyclopedia: {{page_name}}
+{% endblock %}
+
+{% block body %}
+
+{{ mark_content|safe }}
+
+{% endblock %}
