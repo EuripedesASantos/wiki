@@ -1,0 +1,35 @@
+{% extends "encyclopedia/layout_wiki.html" %}
+
+{% block title %}
+    Encyclopedia: {{page_name}}
+{% endblock %}
+
+{% block nav %}
+    {% include "encyclopedia/left_bar.html" %}
+{% endblock %}
+
+{% block body %}
+    {% if message %}
+        <h1> {{ message|safe }} </h1>
+    {% endif %}
+<div id="new_wiki">
+    <form action="{{ action_url }}" method="post">
+        {% csrf_token %}
+                <div>
+                    <label for="as_title">Title:</label>
+                    <input value="{{ new_name}}" autofocus="autofocus" id="as_title" name="new_name" type="text">
+                    <label class="label_rigth">Type the title of the new wiki page</b></label>
+                </div>
+                <div>
+                    <label for="as_content">Markdown text:</label>
+                    <textarea id="as_content" name="markdown_text">{{ mark_content }}</textarea>
+                    <label class="label_rigth">Markdown text for new wiki page</b></label>
+                </div>
+            <div>
+                <div></div>
+                <button type="submit">{{ button_text }}</button>
+            </div>
+        </form>
+</div>
+
+{% endblock %}
